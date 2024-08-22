@@ -2,7 +2,7 @@ import pygame
 import argparse
 
 # List of color variants for the DVD logo
-dvd_images = ['dvd1.png', 'dvd2.png', 'dvd3.png', 'dvd4.png', 'dvd5.png', 'dvd6.png', 'dvd7.png', 'dvd8.png']
+dvd_images = ['images/dvd1.png', 'images/dvd2.png', 'images/dvd3.png', 'images/dvd4.png', 'images/dvd5.png', 'images/dvd6.png', 'images/dvd7.png', 'images/dvd8.png']
 
 # Least Common Multiple function
 def lcm(nbr1, nbr2):
@@ -43,7 +43,7 @@ def dvd(window_width, window_height, logo_width, logo_height, trace, fastforward
     # Initialize window
     screen = pygame.display.set_mode((window_width, window_height))
     trail_surface = pygame.Surface((window_width, window_height))
-    dvd_logo = pygame.image.load('dvd1.png')
+    dvd_logo = pygame.image.load(dvd_images[color_index])
     dvd_logo = pygame.transform.scale(dvd_logo, (logo_width, logo_height))
     direction = (1, 1)
 
@@ -69,7 +69,7 @@ def dvd(window_width, window_height, logo_width, logo_height, trace, fastforward
         if (y_pos == 0 or y_pos == window_height - logo_height) and (x_pos == 0 or x_pos == window_width - logo_width):
             direction = (-direction[0], -direction[1])
             step_count = 0
-            dvd_logo = pygame.transform.scale(pygame.image.load('ultime.png'), (logo_width, logo_height))
+            dvd_logo = pygame.transform.scale(pygame.image.load('images/ultime.png'), (logo_width, logo_height))
             trace = False
             bounces_remaining = bounces_until_corner(window_width, window_height, logo_width, logo_height)
         else:
